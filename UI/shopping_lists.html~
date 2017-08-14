@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Shopping Lists</title>
+	</head>
+<body>
+
+<form id="form1" class="" method="get">
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+
+			<div class="box-header">
+	
+			</div>
+			<div class="box-content">
+
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+                                                <tr>
+<div>
+					<div class="col-sm-3">
+      <input type="text" name="searchphone" placeholder="search lists "/>&nbsp;
+ 					</div>
+					<div class="col-sm-9">
+
+</div>                                       
+                                                </tr>
+						<tr>
+							<th>shopping list</th>
+							<th>day</th>
+							<th>view</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr>
+							<td>impulsive shopping 4</td>
+							<td>day4</td>
+							<td><a href="#">Edit</a></td>
+                                                        <td><a href="#">Delete</a></td>
+						</tr>
+ 						<tr>
+							<td>impulsive shopping 3</td>
+							<td>day3</td>
+							<td><a href="#">Edit</a></td>
+                                                        <td><a href="#">Delete</a></td>
+						</tr>
+ 						<tr>
+							<td>impulsive shopping 2</td>
+							<td>day2</td>
+							<td><a href="#">Edit</a></td>
+                                                        <td><a href="#">Delete</a></td>
+						</tr>
+ 						<tr>
+							<td>impulsive shopping 1</td>
+							<td>day1</td>
+							<td><a href="#">Edit</a></td>
+                                                        <td><a href="#">Delete</a></td>
+						</tr>
+ 
+		                        </tbody>
+	                       </table>
+               		</div>    
+	     
+		</form>
+
+		<form>
+
+					<div class="col-sm-3">
+      <input type="text" name="searchphone" placeholder="impulsive shopp... "/>&nbsp;
+ 					</div>
+					<>
+
+                </form>
+
+            </div> 
+      </div>
+</div>
+</body>
+</html>
+
+
