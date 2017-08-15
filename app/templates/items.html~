@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form id="form1" class="" method="get">
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+
+			<div class="box-header">
+	
+			</div>
+			<div class="box-content">
+
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+                                                <tr>
+<div>
+					<div class="col-sm-3">
+      <input type="text" name="searchphone" placeholder="search lists "/>&nbsp;
+ 					</div>
+					<div class="col-sm-9">
+
+</div>                                       
+                                                </tr>
+						<tr>
+							<th>item</th>
+							<th>quantity</th>
+							<th>price</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr>
+							<td>coffee maker</td>
+							<td>1 &nbsp;&nbsp; <a href="#">change</a></td>
+							<td>150000 &nbsp;&nbsp;<a href="#">Remove</a></td>
+                               
+						</tr>
+ 						<tr>
+							<td>coffee packs</td>
+							<td>12 &nbsp;&nbsp; <a href="#">change</a></td>
+							<td>40000 &nbsp;&nbsp;<a href="#">Remove</a></td>
+						</tr>
+ 						<tr>
+							<td>sugar packs</td>
+							<td>6 &nbsp;&nbsp; <a href="#">change</a></td>
+							<td>30000 &nbsp;&nbsp;<a href="#">Remove</a></td>
+						</tr>
+
+		                        </tbody>
+	                       </table>
+               		</div>    
+	     
+		</form>
+
+		<form>
+
+					<div class="col-sm-3">
+      <input type="text" name="itemname" placeholder="add item to list... "/>&nbsp;
+      <button type="text" class="dropdown-toggle"/>quantity</button>&nbsp;
+ 					</div>
+					<button type="submit" value="submit" class="btn btn-primary">Add item</button>
+
+                </form>
+
+
+{% endblock %}
