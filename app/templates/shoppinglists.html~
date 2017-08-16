@@ -27,6 +27,7 @@
 						<tr>
 							<th>shopping list</th>
 							<th>day</th>
+                                                        <th>budget</th>
 							<th>view</th>
 
 						</tr>
@@ -34,40 +35,55 @@
 					<tbody>
 
 						<tr>
+							<td>impulsive shopping 5</td>
+							<td>day5</td>
+                                                        <td>50000</td>
+							<td><a href="#">Edit</a></td>
+                                                        <td><a href="#">Delete</a></td>
+						</tr>
+ 						<tr>
 							<td>impulsive shopping 4</td>
 							<td>day4</td>
+							<td>35000</td>
 							<td><a href="#">Edit</a></td>
                                                         <td><a href="#">Delete</a></td>
 						</tr>
  						<tr>
 							<td>impulsive shopping 3</td>
 							<td>day3</td>
+							<td>38000</td>
 							<td><a href="#">Edit</a></td>
                                                         <td><a href="#">Delete</a></td>
 						</tr>
  						<tr>
 							<td>impulsive shopping 2</td>
 							<td>day2</td>
+							<td>65000</td>
 							<td><a href="#">Edit</a></td>
                                                         <td><a href="#">Delete</a></td>
 						</tr>
- 						<tr>
-							<td>impulsive shopping 1</td>
+					{% if result %}
+						{% for row in result %}
+						<tr>
+							<td>{{ row['name'] }}</td>
 							<td>day1</td>
+							<td>{{ row['budget']  }}</td>
 							<td><a href="#">Edit</a></td>
                                                         <td><a href="#">Delete</a></td>
 						</tr>
- 
+ 						{% endfor %}
+					{% endif %}
 		                        </tbody>
 	                       </table>
                		</div>    
 	     
 		</form>
 
-		<form>
+		<form id= "form2" class="" method="post">
 
 					<div class="col-sm-3">
-      <input type="text" name="listname" placeholder="new list... "/>&nbsp;
+      <input type="text" name="listname" placeholder="new list... "/>&nbsp;&nbsp;
+      <input type="text" name="budget" placeholder="50000"/>
  					</div>
 					<button type="submit" value="submit" class="btn btn-primary">create list</button>
 
