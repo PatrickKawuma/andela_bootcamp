@@ -33,6 +33,23 @@ class ShoppingList:
         del self.items[item_name]
 
 
+    @classmethod
+    def get_list(cls, list_id):
+        for shop_list in SHOPPING_LISTS:
+            if shop_list.id == list_id:
+                 return shop_list
+        return None
+
+
+    #@classmethod
+    def get_items(self):
+        return self.items
+        #shop_list = self.get_list(list_id)
+        #if shop_list:
+        #    return shop_list.items
+        #return None
+
+
     def edit_item_data(self, item_name, quantity, price):
             self.items[item_name]['quantity'] = quantity
             self.items[item_name]['price'] = price
@@ -75,6 +92,7 @@ class User:
             USERS.append(new_user)
             session['username'] = username
             new_user.login(new_user.username)
+
             return True
         return "user already exists"
 

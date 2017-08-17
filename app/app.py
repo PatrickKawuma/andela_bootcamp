@@ -6,10 +6,6 @@ from flask import Flask, render_template, request, session, url_for, redirect
 
 app = Flask(__name__)  # '__main__'
 
-@app.route('/hello') # www.mysite.com/
-def hello_method():
-    return render_template('login.html')
-
 
 @app.route('/', methods=['GET', 'POST'])
 def login_user():
@@ -35,47 +31,59 @@ def register():
         User.register(username, password)
 
         #print (list(y.username for y in USERS))   ###check that users are stored until server restart
-        return redirect(url_for('shopping_list'))   
+        return redirect(url_for('shopping_list'))
     return render_template('registration.html')
-
-
-
-@app.route('/shoppinglists/<string:username>')
-def user_lists():
-    user = User.get_user(session['username'])
-    lists = user.view_lists()
-
-    return render_by_template('shoppinglists.html', lists = lists)
 
 
 @app.route('/shoppinglists', methods=['GET', 'POST'])
 def shopping_list():
+
+    user = User.get_user(session['username'])
+
     if request.method == "POST":
         name = request.form['listname']
         budget = request.form['budget']
         username = request.form['username']
-        print(username)
-        user = User.get_user(username)
 
         shop_list = ShoppingList(name, budget, user)
         SHOPPING_LISTS.append(shop_list)
         print (list(x.name for x in SHOPPING_LISTS))  #check that my lists are stored until server restart
  
-        result = SHOPPING_LISTS
-        return render_template('shoppinglists.html', result=result, user=session['username'])
-    return render_template('shoppinglists.html', user=session['username'])
+        #result = SHOPPING_LISTS
+        lists = user.view_lists()
+        for row in lists:
+            print(row.id)
+        return render_template('shoppinglists.html', result=lists, user=session['username'])
+
+    else:
+        lists = user.view_lists()
+        for row in lists:
+            print("rendering")
+        return render_template('shoppinglists.html', result=lists, user=session['username'])
 
 
+@app.route('/view_list/<list_id>', methods=['GET', 'POST'])
+def view_list(list_id=None):    
+    items = None
+    shop_list = ShoppingList.get_list(list_id)
+    if request.method == 'POST':
+        itemname = request.form['itemname']
+        quantity = request.form['quantity']
+        price = request.form['price']
+        list_id = request.form['list_id']
 
-@app.route('/viewitems')
-def items():
-    return render_template('items.html')
+        shop_list = ShoppingList.get_list(list_id)
+        shop_list.add_item(itemname, int(quantity), price)
+        
+    items = shop_list.get_items()
+    print(items)
+    return render_template('items.html', items=items, list_id=list_id)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session['username'] = None
-    return redirect('login_user')
+    return redirect(url_for('login_user'))
 
 
 @app.route('/delete_list/<list_id>')
@@ -87,14 +95,9 @@ def delete_list(list_id=None):
 
 
 '''
-@app.route('/add_item')
-def add_item():
-    return render_template('list_details.html')
-
-
 @app.route('delete_item')
 def delete_item():
-    return render_template('list_details.html')
+    return render_template('items.html')
 
 
 @app.route('/edit_item')
@@ -103,7 +106,7 @@ def edit_item():
 '''
 
 
-#app.config['DEBUG'] = True
+app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = "campboot_ladena"
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://DB_USER:PASS@HOST/DB'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{user}:{password}@{host}:{port}/{db}'.format(**POSTGRES)

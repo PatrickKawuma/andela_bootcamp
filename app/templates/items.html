@@ -32,23 +32,15 @@
 						</tr>
 					</thead>
 					<tbody>
-
+					{% if items %}
+						{% for key, value in items.items() %}
 						<tr>
-							<td>coffee maker</td>
-							<td>1 &nbsp;&nbsp; <a href="#">change</a></td>
-							<td>150000 &nbsp;&nbsp;<a href="#">Remove</a></td>
-                               
+							<td>{{ key }}</td>
+							<td>{{ value['quantity'] }} &nbsp;&nbsp; <a href="#">change</a></td>
+							<td>{{ value['price'] }} &nbsp;&nbsp;<a href="#">Remove</a></td>
 						</tr>
- 						<tr>
-							<td>coffee packs</td>
-							<td>12 &nbsp;&nbsp; <a href="#">change</a></td>
-							<td>40000 &nbsp;&nbsp;<a href="#">Remove</a></td>
-						</tr>
- 						<tr>
-							<td>sugar packs</td>
-							<td>6 &nbsp;&nbsp; <a href="#">change</a></td>
-							<td>30000 &nbsp;&nbsp;<a href="#">Remove</a></td>
-						</tr>
+ 						{% endfor %}
+					{% endif %}
 
 		                        </tbody>
 	                       </table>
@@ -56,15 +48,16 @@
 	     
 		</form>
 
-		<form>
+<form id="form2" class="" method="post">
 
 					<div class="col-sm-3">
-      <input type="text" name="itemname" placeholder="add item to list... "/>&nbsp;
-      <button type="text" class="dropdown-toggle"/>quantity</button>&nbsp;
+      <input type="text" name="itemname" placeholder="item to include... "/>&nbsp;
+      <input type="text" name="quantity" placeholder="quantity"/>&nbsp;
+      <input type="text" name="price" placeholder="price per unit"/>&nbsp;
+      <input type="hidden" name="list_id" value="{{ list_id }}">
  					</div>
 					<button type="submit" value="submit" class="btn btn-primary">Add item</button>
-
-                </form>
+</form>
 
 
 {% endblock %}

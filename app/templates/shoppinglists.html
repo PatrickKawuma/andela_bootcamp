@@ -26,9 +26,9 @@
                                                 </tr>
 						<tr>
 							<th>shopping list</th>
-							<th>day</th>
+							<th>date</th>
                                                         <th>budget</th>
-							<th>view</th>
+							<th></th>
 
 						</tr>
 					</thead>
@@ -39,13 +39,13 @@
 							<td>{{ row.name }}</td>
 							<td>{{ row.created }}</td>
 							<td>{{ row.budget }}</td>
-							<!--<td><a href="#">Edit</a></td> -->
-                                                        <td><a href="{{ url_for('delete_list', list_id=row.id)}}">Delete</a></td>
+							<td><a href="{{ url_for('view_list', list_id=row.id)}}">view</a></td>
+                                                        <td>
+							   
+							    <a href="{{ url_for('delete_list', list_id=row.id)}}">delete</a>							</td>
 						</tr>
  						{% endfor %}
 					{% endif %}
-
-
 
 		                        </tbody>
 	                       </table>
@@ -54,7 +54,7 @@
 	        
 		</form>
 
-		<form id= "form2" class="" method="post">
+		<form id="form2" class="" method="post">
 
 					<div class="col-sm-3">
       <input type="text" name="listname" placeholder="new list... "/>&nbsp;&nbsp;
