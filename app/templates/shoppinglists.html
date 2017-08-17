@@ -37,48 +37,21 @@
 						{% for row in result %}
 						<tr>
 							<td>{{ row.name }}</td>
-							<td>{{ row.date }}</td>
+							<td>{{ row.created }}</td>
 							<td>{{ row.budget }}</td>
-							<td><a href="#">Edit</a></td>
-                                                        <td><a href="#">Delete</a></td>
+							<!--<td><a href="#">Edit</a></td> -->
+                                                        <td><a href="{{ url_for('delete_list', list_id=row.id)}}">Delete</a></td>
 						</tr>
  						{% endfor %}
 					{% endif %}
 
-<!--						<tr>
-							<td>impulsive shopping 5</td>
-							<td>day5</td>
-                                                        <td>50000</td>
-							<td><a href="#">Edit</a></td>
-                                                        <td><a href="#">Delete</a></td>
-						</tr>
- 						<tr>
-							<td>impulsive shopping 4</td>
-							<td>day4</td>
-							<td>35000</td>
-							<td><a href="#">Edit</a></td>
-                                                        <td><a href="#">Delete</a></td>
-						</tr>
- 						<tr>
-							<td>impulsive shopping 3</td>
-							<td>day3</td>
-							<td>38000</td>
-							<td><a href="#">Edit</a></td>
-                                                        <td><a href="#">Delete</a></td>
-						</tr>
- 						<tr>
-							<td>impulsive shopping 2</td>
-							<td>day2</td>
-							<td>65000</td>
-							<td><a href="#">Edit</a></td>
-                                                        <td><a href="#">Delete</a></td>
-						</tr>
--->
+
 
 		                        </tbody>
 	                       </table>
+			<input type="hidden" name="username" value="{{ user }}">
                		</div>    
-	     
+	        
 		</form>
 
 		<form id= "form2" class="" method="post">
@@ -88,6 +61,7 @@
       <input type="text" name="budget" placeholder="50000"/>
  					</div>
 					<button type="submit" value="submit" class="btn btn-primary">create list</button>
+                                        <input type="hidden" name="username" value="{{ user }}">
 
                 </form>
 

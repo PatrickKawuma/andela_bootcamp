@@ -55,7 +55,7 @@
 </form>
 
 <div class="text-center">
-<button href="/register" type="submit" value="submit" class="btn btn-primary">Sign Up Here</button>
+<a href="{{ url_for('register')}}"><button type="submit" value="submit" class="btn btn-primary">Sign Up Here</button></a>
  <input type="hidden"</div>
 </body>
 </html>
