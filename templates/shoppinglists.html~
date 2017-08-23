@@ -19,7 +19,6 @@
 <div>
 					<div class="col-sm-3">
       <input type="text" name="searchlist" placeholder="search lists "/>&nbsp;
-      <button type="submit" value="submit" class="btn btn-success">Search</button>
  					</div>
 					<div class="col-sm-9">
 

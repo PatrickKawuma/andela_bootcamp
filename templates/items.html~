@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form id="form1" method="get">
+<form id="form1" class="" method="get">
 
 <div class="row">
 	<div class="col-xs-12">
